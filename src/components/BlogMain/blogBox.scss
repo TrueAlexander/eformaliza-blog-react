@@ -1,0 +1,152 @@
+@import "../../styles/variables";
+
+.blogBox {
+  
+  background-color: $colorPrimary;
+
+  &__content {
+    margin: 175px 0 50px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 50px 0;
+  }
+
+  &__item {
+    flex: 0 1 49%;
+    margin: 20px 0;
+  }
+
+  &__card {
+    background-color: $colorSecondary;
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0 10px 0 0;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 1px white, 0 0 5px red;
+    min-height: 300px;
+  }
+
+  &__image {
+    flex: 0 1 50%;
+    display: flex;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__post {
+    flex: 0 1 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__button {
+    position: relative;
+    bottom: 0;
+    margin: 10px auto 0;
+    font-size: 16px;
+
+    a {
+      color: white;
+    }
+  }
+
+  &__date {
+    margin: 0 0 0 auto;
+    width: fit-content;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   
+  }
+
+  &__text { 
+    letter-spacing: 0.5px;
+    margin: 15px 0 0;
+    padding: 0 5px;
+    text-indent: 15px;
+    text-align: justify;
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 17px;
+    height: 180px;
+    overflow: hidden;
+  
+  }
+}
+
+@media (max-width:1200px) {
+  .blogBox {
+
+    &__item {
+      flex: 0 1 100%;
+    }
+
+    &__card {
+      min-height: 210px;
+    } 
+
+    &__text {
+      max-height: 120px;
+    }
+  }
+}
+
+@media (max-width:950px) {
+  .blogBox { 
+    &__text {
+      line-height: 20px;
+      font-size: 15px;
+    }
+  } 
+}
+
+@media (max-width:700px) {
+  .blogBox { 
+    &__content {
+      margin: 160px 0 50px;
+    }
+
+    &__card {
+      min-height: 210px;
+    } 
+
+    &__row {
+      margin: 15px 0;
+    }
+
+    &__card {
+      height: auto;
+      display: block;
+      max-width: 100%;
+      padding: 0 0 0 0;
+    }
+
+    &__text {
+      max-height: 80px;
+    }
+
+    &__image {
+      height: 50%;
+      height: 165px;
+    }
+
+    &__date {
+      padding-right: 15px;
+    }
+  } 
+}

@@ -1,0 +1,13 @@
+.whatsapp {
+  position: fixed;
+  right: 2rem;
+  top: 88%;
+  opacity: 0.95;
+  cursor: pointer;
+  z-index: 100;
+  
+  img {
+    width: 45px;
+    height: 45px;
+  }
+}

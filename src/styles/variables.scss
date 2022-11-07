@@ -1,0 +1,25 @@
+//variables
+
+//colors static
+$colorBlack: rgb(0, 0, 0);
+$colorWhite: rgb(255, 255, 255);
+$colorRed: rgb(255, 0, 0);
+
+$colorLightGrey: #cccccc;
+$colorDarkRed: #ce4809;
+$colorGrey: #808080;
+$colorGreyTransp: rgba(128, 128, 128, 0.61);
+$colorDarkRed05: rgba(206, 71, 9, 0.05);
+$colorViolet087: rgba(82, 32, 110, 0.87);
+
+//colors dynamic
+
+$colorPrimary: $colorLightGrey;
+$colorSecondary: $colorBlack;
+$colorTertiary: $colorDarkRed;
+$colorFont: $colorBlack;
+
+// fonts
+
+$font-family-roboto: roboto;
+$font-path: "../fonts";

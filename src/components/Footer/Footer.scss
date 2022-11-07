@@ -1,0 +1,189 @@
+@import "../../styles/variables";
+
+.footer {
+  color: #fff;
+  background-color: $colorBlack;
+  padding: 15px 0 20px;
+  position: relative;
+
+  &__title {
+    border: none;
+    box-shadow: none;
+  }
+
+  &__row {
+    display: flex;
+    margin: 25px auto 35px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__item {
+    flex: 0 0 17%;
+    margin: 0 30px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s linear 0.1s;
+
+    img {
+      
+      background-color: rgba(189, 30, 30, 0.705);
+      box-shadow: 0 0 4px red;
+      border-radius: 50%;
+      height: 70%;
+      margin-right: 10px;
+    }
+    p {
+      font-size: 18px;
+      font-family: $font-family-description;
+      font-weight: 400;
+    }
+  }
+
+  &__item:hover {
+    transform: translateY(-2px) scale(1.04);
+    transition: all 0.3s linear 0.1s;
+    img {
+      box-shadow: 0 0 4px white;
+    }
+    p {
+      text-shadow: 0 0 2px white;
+    }
+  }
+
+  &__box {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__unit {
+    height: 65px;
+    display: flex;
+    align-items: center; 
+  }
+
+  &__dove {
+    margin-left: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 5px white;
+    border-radius: 50%;
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+
+  &__copyright {
+     
+    p {
+      font-family: $font-family-title, Arial, Helvetica, sans-serif;
+      text-transform: lowercase;
+      line-height: 30px;
+      position: relative;
+      a {
+        text-transform: none;
+        color: inherit;
+        font-size: inherit;
+      }
+    }
+
+    p::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: -35px;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background-image: url("../../src/favicon.ico");
+      background-position: center;
+      background-size: contain;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 1290px) {
+  .footer {
+    &__row {
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      flex: 0 0 40%;
+      margin: 0 30px 10px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    &__logo {
+      bottom: 40px;
+      left: 15px;
+      img {
+        width: 140px;
+      }
+    }
+
+    &__row {
+      margin: 25px auto 50px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &__item {
+      flex: 0 0 70%;
+      margin: 0 auto 5px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 1.1em;
+      }
+      img {
+        height: 70%;
+      }
+    }
+
+    &__box {
+      margin-top: 0;
+    }
+  
+    &__unit {
+      height: 50px;
+    }
+  
+    &__dove {
+      margin-left: 30px;
+    }
+  
+    &__copyright {
+       
+      p {
+        font-size: 0.9em;
+      }
+  
+      p::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: -35px;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        background-image: url("../../src/favicon.ico");
+        background-position: center;
+        background-size: contain;
+        border-radius: 50%;
+      }
+    }
+  }
+}
