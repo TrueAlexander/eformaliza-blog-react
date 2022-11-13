@@ -1,5 +1,7 @@
 @import "./styles/nullstyle";
 @import "./styles/variables";
-@import "./styles/fonts.scss";
 @import "./styles/generic.scss";
+
+//import components styles
+@import "./components/Footer/Footer.scss";
 

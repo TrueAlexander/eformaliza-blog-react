@@ -1,9 +1,13 @@
+//import fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+//font-family: 'Roboto', sans-serif;
+
 //variables
 
 //colors static
 $colorBlack: rgb(0, 0, 0);
 $colorWhite: rgb(255, 255, 255);
-$colorRed: rgb(255, 0, 0);
+$colorRed: rgb(232, 5, 5);
 
 $colorLightGrey: #cccccc;
 $colorDarkRed: #ce4809;
@@ -16,10 +20,9 @@ $colorViolet087: rgba(82, 32, 110, 0.87);
 
 $colorPrimary: $colorLightGrey;
 $colorSecondary: $colorBlack;
-$colorTertiary: $colorDarkRed;
-$colorFont: $colorBlack;
+$colorTertiary: $colorRed;
+$colorWhiteShadow: $colorWhite;
 
 // fonts
 
-$font-family-roboto: roboto;
-$font-path: "../fonts";
+$font-family-roboto: 'Roboto', sans-serif;
