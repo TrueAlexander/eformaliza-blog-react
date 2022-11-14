@@ -1,5 +1,23 @@
 @import "variables";
 
+
+a {
+  color: $colorWhite;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
 body {
   background-color: $colorPrimary;
   color: $colorWhiteShadow;
@@ -35,7 +53,6 @@ body.lock {
   text-shadow: 0 0 5px $colorTertiary;
   font-family: $font-family-roboto, sans-serif;
   letter-spacing: 0.07em;
-  font-size: 22px;
   border: 2px solid rgb(129, 7, 7);
   box-shadow: 0 0 3px $colorWhiteShadow, 0 0 3px $colorTertiary;
   text-align: center;
@@ -55,6 +72,18 @@ body.lock {
 .btn:hover {
   box-shadow: 0 0 7px White;
 }
+
+.btn.btn_icon {
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}  
+
+
 
 @media (max-width: 700px) {
   .sectionTitle {

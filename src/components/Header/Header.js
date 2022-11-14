@@ -1,9 +1,9 @@
 import './Header.scss'
 import logo from "./../../images/icons/logo_principal.svg"
-import enterIcon from "./../../images/icons/enter.svg"
 import { useState } from "react"
+import { ImExit, ImEnter } from 'react-icons/im'
 
-const Header = () => {
+const Header = ({setShowModal}) => {
 
   const [auth, setAuth] = useState(false)
 
@@ -11,7 +11,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header__row">
-          <a classname="header__logo" href="./">
+          <a className="header__logo" href="./">
             <img src={logo} alt="eformaliza" className="logo"/>
           </a>
           <div className="header__title">
@@ -19,12 +19,17 @@ const Header = () => {
           </div>
           <div className="header__auth">
             {!auth 
-            ? <button className="btn" title="Entrar">
-              <img src={enterIcon} alt="entrar" />
-            </button>
+            ? <button
+                className="btn btn_icon" 
+                title="Entrar"
+                onClick={() => setShowModal(true)}
+              ><ImEnter/></button>
             : <>
                 <p>Usuario</p>
-                <button className="btn">Sair</button>
+                <button
+                  className="btn btn_icon" 
+                  title="Sair"
+                ><ImExit/></button>
               </>}
           </div>
         </div>

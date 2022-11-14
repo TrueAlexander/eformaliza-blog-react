@@ -35,14 +35,15 @@
       margin: 7px 0;
     }
 
-    button {
-      margin: 0 auto;
-      height: 25px;
-      padding: 0px 4px;
-      img {
-        height: 100%;
-      }
-    }  
+    // button {
+    //   margin: 0 auto;
+    //   font-size: 20px;
+    //   line-height: 20px;
+    //   padding: 3px 4px;
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    // }  
   }
 
   &__title {
@@ -50,10 +51,6 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 10px;
-    h1 {
-      font-size: 40px;
-      font-weight: 400;
-    }
   }
 }
 
@@ -62,18 +59,12 @@
     &__row {
       height: 80px;
       padding: 0;
-      // justify-content: space-around;
     }
 
     &__title {
       h1 {
         font-size: 25px;
       }
-    }
-
-    &__auth { 
-      // position: absolute;
-      
     }
   }
 }
@@ -97,16 +88,10 @@
         margin: 7px 0;
         font-size: 12px;
       }
-  
+
       button {
-        font-size: 12px;
-        margin: 0 auto;
-        height: 25px;
-        padding: 0px 4px;
-        img {
-          height: 100%;
-        }
-      } 
+        transform: scale(0.8);
+      }
     }
   }
 }

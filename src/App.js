@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Post from './pages/Post'
-import Auth from './pages/Auth'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
 
@@ -12,7 +11,6 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/post' element={<Post/>} />
-          <Route path='/auth' element={<Auth/>} />
           <Route path='/create-post' element={<CreatePost/>} />
           <Route path='/edit-post/:id' element={<EditPost/>} />
         </Routes>
