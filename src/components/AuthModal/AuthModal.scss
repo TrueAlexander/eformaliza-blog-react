@@ -14,14 +14,14 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 50px;
-    padding: 30px;
+    top: 50%;
+    padding: 0px 0 20px;
     border-radius: 10px;
-    margin: auto;
+    margin: 0 auto;
     max-width: 900px;
     background-color: $colorPrimary;
     border: 1px solid $colorTertiary;
-    transform: scale(0.5);
+    transform: translateY(-50%) scale(1);
     transition: transform 0.5s;
   }
 
@@ -32,16 +32,39 @@
   }
 
   &__row {
-    margin: 80px 0;
+    margin: 35px 0 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
 
   &__item {
-    border: 1px solid red;
     flex: 0 1 48%;
     text-align: center;
+  }
+
+  .form {
+
+    &__input {
+      margin: 0 0 15px;
+
+      input {
+        width: 230px;
+        font-size: 16px;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid $colorBlack;
+      }
+
+      input:focus {
+        outline: 1px solid $colorBlack;
+        box-shadow: 0 0 6px $colorBlack;
+      }
+
+      input:focus::placeholder {
+        color: transparent;
+      }
+    }   
   }
 }
 
@@ -49,18 +72,13 @@
 
 .authModal.show {
   opacity: 1;
-  transition: 0.1s;
   pointer-events: all;
-
-  // &__content.show {
-    
-  // }
 }
 
-.authModal.show .authModal__content.show {
-    transform: scale(1);
-    transition: transform 5s;
-}
+// .authModal.show .authModal__content.show {
+//     transform: scale(1);
+//     transition: transform 5s;
+// }
 
 @media (max-width:600px) {
   .authModal {

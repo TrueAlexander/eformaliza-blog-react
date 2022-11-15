@@ -10,8 +10,7 @@ const AuthModal = ({showModal, setShowModal}) => {
       onClick={() => setShowModal(false)}
     >
       <div 
-        className={showModal ? "authModal__content show" : "authModal__content"} 
-        // className="authModal__content"
+        className="authModal__content"
         onClick={e => e.stopPropagation()}
       >
         <h2 className="authModal__title sectionTitle">Prezado usuario!</h2>
@@ -23,7 +22,7 @@ const AuthModal = ({showModal, setShowModal}) => {
         <div className="authModal__row">
           <div className="authModal__item">
             <h3>Faz Login:</h3>
-            <Login />
+            <Login setShowModal={setShowModal} />
           </div>
           <div className="authModal__item">
             <h3>Ou cadastre-se:</h3>
