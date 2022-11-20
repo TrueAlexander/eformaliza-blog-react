@@ -1,5 +1,6 @@
-import UpArrowIcon from "../../assets/up-arrow.png"
-import './UpArrow.css'
+// import UpArrowIcon from "../../assets/up-arrow.png"
+import { FaArrowCircleUp } from 'react-icons/fa'
+import './UpArrow.scss'
 import 'animate.css'
 import { Link as LinkRoll } from 'react-scroll'
 import { useState, useEffect } from "react"
@@ -9,7 +10,7 @@ const UpArrow = () => {
   const [y, setY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = event => {
+    const handleScroll = (event) => {
       window.pageYOffset === 0 ? setY(0) : setY(1)
     }
     window.addEventListener('scroll', handleScroll)
@@ -26,14 +27,15 @@ const UpArrow = () => {
       >
         <LinkRoll
           className='scrollLink' 
-          to={"navbar"} 
+          to={"header"} 
           activeClass="active" 
           spy={true} 
           smooth={true} 
           offset={-100} 
-          duration={500} 
+          duration={500}
+          title="Voltar"
         >
-          <img src={UpArrowIcon} alt="Voltar" />
+          <FaArrowCircleUp/>
         </LinkRoll>
       </div>}
     </>

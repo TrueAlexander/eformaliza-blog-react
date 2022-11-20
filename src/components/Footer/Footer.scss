@@ -4,6 +4,7 @@
   background-color: $colorSecondary;
   padding: 15px 0 20px;
   position: relative;
+  box-shadow: 0 -1px 4px $colorWhiteShadow;
 
   &__title {
     border: none;

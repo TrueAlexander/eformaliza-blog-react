@@ -1,14 +1,30 @@
 import './Header.scss'
 import logo from "./../../images/icons/logo_principal.svg"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ImExit, ImEnter } from 'react-icons/im'
+import { useSelector, useDispatch } from 'react-redux'
+import { isAuth, logout } from '../../features/authSlice'
 
 const Header = ({setShowModal}) => {
 
+  const dispatch = useDispatch()
+
   const [auth, setAuth] = useState(false)
 
+  const checkAuth = useSelector(isAuth)
+
+  useEffect(() => {
+    
+    setAuth(checkAuth.payload.auth.auth)
+
+  }, [])
+ 
+  
+  console.log(auth)
+  const username = auth ? auth.username : ""
+
   return (
-    <header className="header">
+    <header className="header" id="header">
       <div className="container">
         <div className="header__row">
           <a className="header__logo" href="./">
@@ -25,9 +41,10 @@ const Header = ({setShowModal}) => {
                 onClick={() => setShowModal(true)}
               ><ImEnter/></button>
             : <>
-                <p>Usuario</p>
+                <p>{username}</p>
                 <button
-                  className="btn btn_icon" 
+                  className="btn btn_icon"
+                  onClick={() => dispatch(logout())}
                   title="Sair"
                 ><ImExit/></button>
               </>}

@@ -11,32 +11,20 @@ const Login = ({setShowModal}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    //send data to server
-    // const body = {
-    //   "email": email,
-    //   "password": password
-    // }
-
+    //send email and password to server
     try {
       const response = await axios.post('http://localhost:4444/auth/login', {email, password})
-
-      console.log(response.data.userData);
-
       ///dispatch to store that the user is logged in
       ///send to store the name of a user
       dispatch(login(response.data.userData))
-
+      //send username and token to localstorage
+      localStorage.setItem("user", response.data.userData.username)
+      localStorage.setItem("token", response.data.token)
       setShowModal(false)
-      // return response.data.message;
       
-
-      
-
     } catch (error) {
-
+      console.log('error!!')
       console.log(error.response.data.message)
-     
-      return alert(error.response.data.message)
     }     
   }
  
@@ -68,6 +56,10 @@ const Login = ({setShowModal}) => {
         </div>
         <button className="form__btn btn" type="submit">Enviar</button>
       </form>
+      <button 
+        className="login__reset"
+      >
+        Clique para recuperar a senha</button>
     </div>
   )
 }

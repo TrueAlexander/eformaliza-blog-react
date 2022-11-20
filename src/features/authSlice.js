@@ -17,8 +17,17 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
 
-    isAuth: async (state, action) => {
+    isAuth: (state, action) => {
       //check if logged in
+      console.log("isAuth")
+      console.log(localStorage.getItem("token"))
+      
+
+      // if (!localStorage.getItem("token")) {
+      //   return false
+      // } else {
+      //   return true
+      // }
     },
 
     // register: async (state, action) => {
@@ -32,13 +41,15 @@ export const authSlice = createSlice({
       console.log(state.auth)
     },
 
-    // logout: async (state, action) => {
-    //   //to logout
-    //   console.log('logout')
-    // }
+    logout: (state, action) => {
+      //to logout
+      state.auth = null
+      // window.location.reload()
+      console.log(state.auth)
+    }
   }
 })
 // export const { isAuth, register, login, logout } = authSlice.actions
-export const { isAuth, login } = authSlice.actions
+export const { isAuth, login, logout } = authSlice.actions
 
 export default authSlice.reducer

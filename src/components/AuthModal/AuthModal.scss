@@ -31,6 +31,10 @@
     top: 10px;
   }
 
+  &__btn:hover {
+    box-shadow: 0 0 3px $colorBlack;
+  }
+
   &__row {
     margin: 35px 0 0;
     display: flex;
@@ -44,7 +48,6 @@
   }
 
   .form {
-
     &__input {
       margin: 0 0 15px;
 
@@ -64,23 +67,25 @@
       input:focus::placeholder {
         color: transparent;
       }
-    }   
+    }
+    &__btn:hover {
+      box-shadow: 0 0 3px $colorBlack;
+    }
+  }
+
+  .login  {
+    &__reset {
+       margin-top: 20px;
+    }  
   }
 }
-
-
 
 .authModal.show {
   opacity: 1;
   pointer-events: all;
 }
 
-// .authModal.show .authModal__content.show {
-//     transform: scale(1);
-//     transition: transform 5s;
-// }
-
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .authModal {
     &__item {
       flex: 0 1 100%;

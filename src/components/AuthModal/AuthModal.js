@@ -2,11 +2,12 @@ import Login from "../Login/Login"
 import Register from "../Register/Register"
 import "./AuthModal.scss"
 import { FaRegWindowClose } from "react-icons/fa"
+import "animate.css"
 
 const AuthModal = ({showModal, setShowModal}) => {
   return (
     <div 
-      className={showModal ? "authModal show" : "authModal"} 
+      className={showModal ? "authModal show animate__animated animate__flipInX" : "authModal"} 
       onClick={() => setShowModal(false)}
     >
       <div 
