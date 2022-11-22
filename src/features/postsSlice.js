@@ -1,6 +1,50 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+
+const initialState = {
+  posts: []
+}
+
+export const getPosts = createAsyncThunk('posts/getPosts', async (_, { rejectWithValue, dispatch }) => {
+  const res = await axios.get('http://localhost:4444/posts')
+  dispatch(setPosts(res.data))
+})
+
+// export const deletePostById = createAsyncThunk('posts/deletePostById', async (id, {rejectWithValue, dispatch}) => {
+//   await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+//   dispatch(deletePost(id))
+// } )
+
+export const postSlice = createSlice({
+  name: 'posts',
+  initialState,
+  reducers: {
+    setPosts: (state, action) => {
+      state.posts = action.payload
+      console.log(state.posts);
+    },
+    // deletePost: (state, action) => {
+    //   state.posts = state.posts.filter(post =>post.id !== action.payload)
+    // }
+  },
+  extraReducers: {
+    [getPosts.fulfilled]: () => console.log('fulfilled'),
+    [getPosts.pending]: () => console.log('pending'),
+    [getPosts.rejected]: () => console.log('rejected'),
+
+    // [deletePostById.fulfilled]: () => console.log('fulfilled'),
+    // [deletePostById.pending]: () => console.log('pending'),
+    // [deletePostById.rejected]: () => console.log('rejected'),
+  },
+})
+
+// export const { setPosts, deletePost } = postSlice.actions
+export const { setPosts } = postSlice.actions
+export default postSlice.reducer
+
+// export const postsReducer = postsSlice.reducer
+
 // const initialState = {
 //   posts: [],
 // }
@@ -45,70 +89,3 @@ import axios from 'axios'
 // export const { getPosts, removePost } = postsSlice.actions
 
 // export default postsSlice.reducer
-
-
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const { data } = await axios.get('http://localhost:4444/posts')
-  return data
-})
-
-// export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
-//   const { data } = await axios.get('/tags')
-//   return data
-// })
-
-// export const fetchRemovePost = createAsyncThunk('posts/fetchRemovePost', async (id) => await axios.delete(`/posts/${id}`))
-
-const initialState = {
-  posts: {
-    items: [],
-    status: 'loading',
-  },
-  // tags: {
-  //   items: [],
-  //   status: 'loading',
-  // },
-}
-
-const postsSlice = createSlice({
-  name: 'posts',
-  initialState,
-  reducers: {},
-  extraReducers: {
-    ///getting posts
-    [fetchPosts.pending]: (state) => {
-      state.posts.items = []
-      state.posts.status = 'loading'
-    },
-    [fetchPosts.fulfilled]: (state, action) => {
-      state.posts.items = action.payload.reverse()
-      state.posts.status = 'fulfilled'
-    },
-    [fetchPosts.rejected]: (state) => {
-      state.posts.items = []
-      state.posts.status = 'rejected'
-    },
-    // ///getting tags
-    // [fetchTags.pending]: (state) => {
-    //   state.tags.items = []
-    //   state.tags.status = 'loading'
-    // },
-    // [fetchTags.fulfilled]: (state, action) => {
-    //   state.tags.items = action.payload
-    //   state.tags.status = 'loaded'
-    // },
-    // [fetchTags.rejected]: (state) => {
-    //   state.tags.items = []
-    //   state.tags.status = 'error'
-    // },
-    // ///deleting posts
-    // [fetchRemovePost.pending]: (state, action) => {
-    //   state.posts.items = state.posts.items.filter(obj => obj._id !== action.meta.arg)
-    // },
-
-  }
-})
-
-export default postsSlice.reducer
-
-// export const postsReducer = postsSlice.reducer

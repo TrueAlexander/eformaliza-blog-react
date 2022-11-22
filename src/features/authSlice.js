@@ -21,6 +21,7 @@ export const authSlice = createSlice({
       //check if logged in
       console.log("isAuth")
       console.log(localStorage.getItem("token"))
+      return localStorage.getItem("user")
       
 
       // if (!localStorage.getItem("token")) {

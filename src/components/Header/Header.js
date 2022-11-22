@@ -14,13 +14,13 @@ const Header = ({setShowModal}) => {
   const checkAuth = useSelector(isAuth)
 
   useEffect(() => {
-    
+    // console.log(checkAuth.payload.auth.auth)
     setAuth(checkAuth.payload.auth.auth)
 
   }, [])
  
   
-  console.log(auth)
+  // console.log(auth)
   const username = auth ? auth.username : ""
 
   return (
