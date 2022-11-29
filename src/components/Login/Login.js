@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useDispatch } from 'react-redux'
-import { login } from '../../features/authSlice'
+// import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuth } from '../../features/authSlice'
 
 const Login = ({setShowModal}) => {
   const dispatch = useDispatch()
@@ -13,15 +13,16 @@ const Login = ({setShowModal}) => {
     e.preventDefault()
     //send email and password to server
     try {
-      const response = await axios.post('http://localhost:4444/auth/login', {email, password})
-      ///dispatch to store that the user is logged in
-      ///send to store the name of a user
-      dispatch(login(response.data.userData))
-      //send username and token to localstorage
-      localStorage.setItem("user", response.data.userData.username)
-      localStorage.setItem("token", response.data.token)
-      setShowModal(false)
-      
+      const data = await dispatch(fetchAuth({email, password}))
+      if (!data.payload) {
+        alert("O login e/ou a senha estão errados!")
+      } else {
+        alert(data.payload.message)
+        setShowModal(false)
+        //send username and token to localstorage
+        localStorage.setItem("user", data.payload.userData.username)
+        localStorage.setItem("token", data.payload.token)
+      }   
     } catch (error) {
       console.log('error!!')
       console.log(error.response.data.message)

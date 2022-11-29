@@ -3,25 +3,20 @@ import logo from "./../../images/icons/logo_principal.svg"
 import { useState, useEffect } from "react"
 import { ImExit, ImEnter } from 'react-icons/im'
 import { useSelector, useDispatch } from 'react-redux'
-import { isAuth, logout } from '../../features/authSlice'
+import { fetchAuth, logout, selectIsAuth } from '../../features/authSlice'
+
 
 const Header = ({setShowModal}) => {
 
   const dispatch = useDispatch()
 
-  const [auth, setAuth] = useState(false)
+  const auth = useSelector(selectIsAuth)
 
-  const checkAuth = useSelector(isAuth)
-
-  useEffect(() => {
-    // console.log(checkAuth.payload.auth.auth)
-    setAuth(checkAuth.payload.auth.auth)
-
-  }, [])
- 
-  
-  // console.log(auth)
-  const username = auth ? auth.username : ""
+  const user = useSelector(state => {
+    if (state.auth.data) {
+      return state.auth.data.userData.username
+    }  else return undefined
+  })
 
   return (
     <header className="header" id="header">
@@ -41,7 +36,7 @@ const Header = ({setShowModal}) => {
                 onClick={() => setShowModal(true)}
               ><ImEnter/></button>
             : <>
-                <p>{username}</p>
+                <p>{user}</p>
                 <button
                   className="btn btn_icon"
                   onClick={() => dispatch(logout())}
