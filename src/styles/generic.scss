@@ -81,7 +81,25 @@ body.lock {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}  
+}
+
+// styles for thanks page
+.thanks {
+  width: 100%;
+  height: 100%;
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h3 {
+    margin: 20px 0;
+  }
+}
+
+
 
 
 

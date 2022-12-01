@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
-import axios from 'axios'
+import axios from '../../utils/axios'
 // import "./PostMain.scss"
 
 
@@ -15,8 +15,7 @@ const PostMain = () => {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log('effect')
-    axios.get(`http://localhost:4444/posts/${id}`)
+    axios.get(`/posts/${id}`)
       .then((res) => {
         setData(res.data)
         setLoading(false)

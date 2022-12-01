@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-// import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAuth } from '../../features/authSlice'
+import { fetchAuth, fetchVerify } from '../../features/authSlice'
 
 const Login = ({setShowModal}) => {
   const dispatch = useDispatch()
@@ -20,18 +19,18 @@ const Login = ({setShowModal}) => {
         alert(data.payload.message)
         setShowModal(false)
         //send username and token to localstorage
-        localStorage.setItem("user", data.payload.userData.username)
-        localStorage.setItem("token", data.payload.token)
+        if (data.payload.userData) {
+          localStorage.setItem("user", data.payload.userData.username)
+          localStorage.setItem("token", data.payload.token)
+        } else {
+        ////send email verify
+          dispatch(fetchVerify({email}))
+        }
       }   
     } catch (error) {
       console.log('error!!')
-      console.log(error.response.data.message)
     }     
   }
- 
-  // useEffect(() => {
-   
-  // }, [])
   
   return (
     <div className="login">

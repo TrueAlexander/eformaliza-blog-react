@@ -1,15 +1,28 @@
 import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { fetchRegister } from '../../features/authSlice'
 
-const Register = () => {
+const Register = ({setShowModal}) => {
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    console.log(email + " " + password + " " + username)
+    try {
+      const data = await dispatch(fetchRegister({username, email, password}))
+      if (!data.payload) {
+        alert(`O cadastro não foi realizado! Provavelmente o usuario com ${email} ja existe. Tente fazer o login ou recupere sua senha`) 
+      } else {
+        alert(data.payload.message)
+        setShowModal(false)
+      }
+    } catch (error) {
+      console.log('error!!')
+      console.log(error.response.data.message)
+    }
   }
 
   return (

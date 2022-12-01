@@ -11,12 +11,8 @@ const Header = ({setShowModal}) => {
   const dispatch = useDispatch()
 
   const auth = useSelector(selectIsAuth)
-
-  const user = useSelector(state => {
-    if (state.auth.data) {
-      return state.auth.data.userData.username
-    }  else return undefined
-  })
+  
+  const user = localStorage.getItem("user")
 
   return (
     <header className="header" id="header">
@@ -32,7 +28,7 @@ const Header = ({setShowModal}) => {
             {!auth 
             ? <button
                 className="btn btn_icon" 
-                title="Entrar"
+                title="Entrar ou Cadastrar-se"
                 onClick={() => setShowModal(true)}
               ><ImEnter/></button>
             : <>

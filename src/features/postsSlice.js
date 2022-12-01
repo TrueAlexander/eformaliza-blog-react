@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import axios from '../utils/axios'
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const { data } = await axios.get('http://localhost:4444/posts')
+  const { data } = await axios.get('/posts')
   return data.reverse()
 })
 

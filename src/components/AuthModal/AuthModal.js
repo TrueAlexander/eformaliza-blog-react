@@ -27,7 +27,7 @@ const AuthModal = ({showModal, setShowModal}) => {
           </div>
           <div className="authModal__item">
             <h3>Ou cadastre-se:</h3>
-            <Register />
+            <Register setShowModal={setShowModal} />
           </div>
         </div>
       </div>
