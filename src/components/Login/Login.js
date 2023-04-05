@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAuth, fetchVerify } from '../../features/authSlice'
+import { Link } from 'react-router-dom'
 
 const Login = ({setShowModal}) => {
   const dispatch = useDispatch()
@@ -59,7 +60,10 @@ const Login = ({setShowModal}) => {
       <button 
         className="login__reset"
       >
-        Clique para recuperar a senha</button>
+        <Link to="/access-recover">
+          Clique para recuperar a senha
+        </Link>
+        </button>
     </div>
   )
 }

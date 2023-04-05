@@ -24,6 +24,22 @@ body {
   font-family: $font-family-roboto;
 }
 
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.7rem;
+  // background-color: var(--body-color);
+  // background-color: rgb(206, 198, 198);
+  background-color: $colorSecondary;
+  // border-radius: .2rem;
+  border: 1px solid $colorPrimary;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $colorTertiary;
+  border-radius: 0.2rem;
+  height: 60px;
+}
+
 body.lock {
   overflow: hidden;
 }

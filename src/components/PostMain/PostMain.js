@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from '../../utils/axios'
-// import "./PostMain.scss"
+import "./PostMain.scss"
 
 
 const PostMain = () => {
@@ -34,17 +34,17 @@ const PostMain = () => {
   return (
     <main>
       <div className="container">
-        <div className="post">
-          <div className="post__title">
-            <h2 className="title">{data.title}</h2>
+        <div className="postFull">
+          <div className="postFull__title">
+            <h2 className="title sectionTitle">{data.title}</h2>
           </div>
-          <div className="post__box">
-            <div className="post__image">
+          <div className="postFull__box">
+            <div className="postFull__image">
               <img className="lazy" src={""} data-src={""} alt={""} />
             </div>
-            <div className="post__text">{data.text}</div>
+            <div className="postFull__text">{data.text}</div>
           </div>
-          <a className="post__btn btn" href="#" title="Ir ao inicio">Ao inicio</a>
+          <a className="postFull__btn btn" href="#" title="Ir ao inicio">Ao inicio</a>
         </div>
       </div>
     </main>

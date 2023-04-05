@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="footer__row">
           <a href="https://wa.me/5521967261434" className="footer__item">
             <img src={WhatsappIcon} alt="whatsapp" />
-            <p>21-99936-5384</p>
+            <p>21-96726-1434</p>
           </a>
           <div className="footer__item">
             <img src={EmailIcon} alt="Email" />

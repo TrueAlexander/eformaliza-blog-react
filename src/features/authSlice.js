@@ -6,7 +6,6 @@ export const fetchAuth = createAsyncThunk('auth/fetchAuth', async (params) => {
   const { data } = await axios.post('/auth/login', params)
   return data
 })
-
 /////
 //if email is bot verified, reminder
 export const fetchVerify = createAsyncThunk('auth/fetchVerify', async (params) => {
@@ -14,6 +13,14 @@ export const fetchVerify = createAsyncThunk('auth/fetchVerify', async (params) =
   return data
 })
 ////////
+//to recover a password
+
+export const fetchRecover = createAsyncThunk('auth/fetchRecover', async (params) => {
+  const { data } = await axios.post('auth/access-recovery', params)
+  return data
+})
+
+/////
 
 //check if the user is authorized
 export const fetchAuthMe = createAsyncThunk('auth/fetchAuthMe', async () => {
@@ -87,6 +94,18 @@ const authSlice = createSlice({
       state.status = 'loaded'
     },
     [fetchVerify.rejected]: (state) => {
+      state.data = null
+      state.status = 'error'
+    },
+    [fetchRecover.pending]: (state) => {
+      state.data = null
+      state.status = 'loading'
+    },
+    [fetchRecover.fulfilled]: (state, action) => {
+      state.data = action.payload
+      state.status = 'loaded'
+    },
+    [fetchRecover.rejected]: (state) => {
       state.data = null
       state.status = 'error'
     },
