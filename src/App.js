@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Post from './pages/Post'
 import Thanks from './pages/Thanks'
-import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
 import AccessRecover from './pages/AccessRecover'
 import { useDispatch, useSelector } from 'react-redux' 
@@ -25,7 +24,7 @@ const App = () => {
           <Route path='/' element={<Home/>} />
           <Route path='/:title' element={<Post/>} />
           <Route path='/thanks' element={<Thanks/>} />
-          <Route path='/create-post' element={<CreatePost/>} />
+          <Route path='/create-post' element={<EditPost/>} />
           <Route path='/:title/edit-post' element={<EditPost/>} />
           <Route path='/access-recover' element={<AccessRecover/>} />
           <Route path='/new-password' element={<NewPassword/>} />

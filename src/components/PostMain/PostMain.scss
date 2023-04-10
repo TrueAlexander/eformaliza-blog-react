@@ -31,7 +31,8 @@
 
   &__image {
     float: left;
-    width: 50%;
+    max-width: 50%;
+    height: 400px;
     overflow: hidden;
     border-radius: 10px;
     margin: 0 30px 5px 0;

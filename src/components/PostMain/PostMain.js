@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from '../../utils/axios'
 import "./PostMain.scss"
+import { Link as LinkRoll } from 'react-scroll'
 
 
 const PostMain = () => {
@@ -40,11 +41,22 @@ const PostMain = () => {
           </div>
           <div className="postFull__box">
             <div className="postFull__image">
-              <img className="lazy" src={""} data-src={""} alt={""} />
+              <img className="lazy" src={`http://localhost:4444${data.imageUrl}`} alt={data.title} title={data.title}/>
             </div>
             <div className="postFull__text">{data.text}</div>
           </div>
-          <a className="postFull__btn btn" href="#" title="Ir ao inicio">Ao inicio</a>
+          <LinkRoll
+            to={"header"} 
+            activeClass="active" 
+            spy={true} 
+            smooth={true} 
+            offset={-100} 
+            duration={500}
+            title="Voltar"
+        >
+          <button className="postFull__btn btn" title="Ir ao inicio">Ao inicio</button>
+        </LinkRoll>
+          
         </div>
       </div>
     </main>

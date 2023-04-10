@@ -2,6 +2,7 @@ import './Header.scss'
 import logo from "./../../images/icons/logo_principal.svg"
 import { useState, useEffect } from "react"
 import { ImExit, ImEnter } from 'react-icons/im'
+import { HiUser } from 'react-icons/hi'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAuth, logout, selectIsAuth } from '../../features/authSlice'
 
@@ -32,7 +33,7 @@ const Header = ({setShowModal}) => {
                 onClick={() => setShowModal(true)}
               ><ImEnter/></button>
             : <>
-                <p>{user}</p>
+                <p><HiUser/>  {user}</p>
                 <button
                   className="btn btn_icon"
                   onClick={() => dispatch(logout())}

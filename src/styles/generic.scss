@@ -89,6 +89,16 @@ body.lock {
   box-shadow: 0 0 7px White;
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor:auto;
+}
+
+.btn:disabled:hover {
+  box-shadow: none;
+}
+
+
 .btn.btn_icon {
   margin: 0 auto;
   font-size: 20px;

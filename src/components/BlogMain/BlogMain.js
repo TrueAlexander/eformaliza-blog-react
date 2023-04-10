@@ -85,7 +85,9 @@ const BlogMain = () => {
             className="post__image"
             title={post.title}
             style={{ backgroundImage: "" }}
-          ></div>
+          >
+            <img src={`http://localhost:4444${post.imageUrl}`} alt={post.title} />
+          </div>
           <div className="post__content">
             <div className="post__row">
               <div className="post__date">{date(post.createdAt)}</div>
@@ -125,7 +127,9 @@ const BlogMain = () => {
               className="main__btn btn"
               title="Escreve um post novo"
             >
-              Criar post
+              <Link to="/create-post">
+                Criar post
+              </Link>
             </button>}
             {loadPosts()}
           </div>
