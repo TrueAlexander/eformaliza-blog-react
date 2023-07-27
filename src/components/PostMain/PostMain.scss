@@ -8,6 +8,10 @@
 
   &__title {}
 
+  &__delete {
+    text-align: end;
+  }
+
   &__box {
     margin: 40px 0;
     h2 {

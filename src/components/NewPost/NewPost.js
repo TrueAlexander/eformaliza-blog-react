@@ -22,7 +22,7 @@ const NewPost = () => {
   
   const onSubmit = async () => {
     if(title.length > 5) {
-      if(text.length > 30) {
+      if(text.length > 1000) {
         try {
           const fields = {
             title,
@@ -49,8 +49,8 @@ const NewPost = () => {
           console.warn(err)
           alert('Erro! O post não foi criado!')
         }
-      } else setMessage('your article is too short')     
-    } else setMessage('your title is too short')
+      } else setMessage('O artigo é muito curto')     
+    } else setMessage('O titulo é muito curto')
   }
 
   const addImage = async (event) => {

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4444'
+  baseURL: 'https://blog-eformaliza-api.onrender.com/'
 })
 
 //add a middlware to check the auth token in localstorage with every single http request and put to headers of the request

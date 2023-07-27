@@ -13,7 +13,7 @@ const NewPassword = () => {
   const submitPassword = (e) => {
     e.preventDefault()
     if (password1 !== password2) {
-      alert('As senhas têm ser iguais. Digite senhas por favor de novo!')
+      alert('As senhas têm que ser iguais. Digite senhas por favor de novo!')
     } else {
       // ///dispatch post request with new password to api
     // dispatch(fetchPassword({password})) 

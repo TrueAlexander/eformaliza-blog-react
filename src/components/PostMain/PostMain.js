@@ -1,8 +1,10 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from '../../utils/axios'
 import "./PostMain.scss"
 import { Link as LinkRoll } from 'react-scroll'
+import { useSelector } from "react-redux"
+import { selectIsAuth } from "../../features/authSlice"
 
 
 const PostMain = () => {
@@ -14,6 +16,12 @@ const PostMain = () => {
   
   const [data, setData] = useState()
   const [isLoading, setLoading] = useState(true)
+  ////
+  const navigate = useNavigate()
+  // const [user, setUser] = useState(localStorage.getItem("user"))
+  const auth = useSelector(selectIsAuth)
+  ////
+
 
   useEffect(() => {
     axios.get(`/posts/${id}`)
@@ -31,6 +39,16 @@ const PostMain = () => {
   console.log(data)
   console.log(isLoading)
 
+  const deletePost = async () => {
+    const sure = alert("Estas seguro que quer apagar o seu post?:-(")
+   
+    if (sure !== false) {
+      await axios.delete(`/posts/${id}`)
+      alert("O post esta apagando!:-(")
+      navigate(`/`)
+    }  
+  }
+
   if (isLoading) return <h3 className="loading">Carregando...</h3>
   return (
     <main>
@@ -39,6 +57,15 @@ const PostMain = () => {
           <div className="postFull__title">
             <h2 className="title sectionTitle">{data.title}</h2>
           </div>
+          {auth && data.authorUsername === localStorage.getItem("user") ? <div className="postFull__delete">
+            <button
+              className="btn"
+              title="Apagar o post"
+              onClick={deletePost}
+            >
+              Apagar
+            </button>
+          </div> : ""}
           <div className="postFull__box">
             <div className="postFull__image">
               <img className="lazy" src={`http://localhost:4444${data.imageUrl}`} alt={data.title} title={data.title}/>
@@ -55,8 +82,7 @@ const PostMain = () => {
             title="Voltar"
         >
           <button className="postFull__btn btn" title="Ir ao inicio">Ao inicio</button>
-        </LinkRoll>
-          
+        </LinkRoll>         
         </div>
       </div>
     </main>
