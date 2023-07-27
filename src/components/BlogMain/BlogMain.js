@@ -86,7 +86,7 @@ const BlogMain = () => {
             title={post.title}
             style={{ backgroundImage: "" }}
           >
-            <img src={`http://localhost:4444${post.imageUrl}`} alt={post.title} />
+            <img src={`https://blog-eformaliza-api.onrender.com${post.imageUrl}`} alt={post.title} />
           </div>
           <div className="post__content">
             <div className="post__row">

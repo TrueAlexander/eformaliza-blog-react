@@ -68,7 +68,7 @@ const PostMain = () => {
           </div> : ""}
           <div className="postFull__box">
             <div className="postFull__image">
-              <img className="lazy" src={`http://localhost:4444${data.imageUrl}`} alt={data.title} title={data.title}/>
+              <img className="lazy" src={`https://blog-eformaliza-api.onrender.com${data.imageUrl}`} alt={data.title} title={data.title}/>
             </div>
             <div className="postFull__text">{data.text}</div>
           </div>

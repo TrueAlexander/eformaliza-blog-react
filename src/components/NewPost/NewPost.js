@@ -119,7 +119,7 @@ const NewPost = () => {
           </button>
           <div className="newPost__image">
             <img   
-              src={`http://localhost:4444${imageUrl}`} 
+              src={`https://blog-eformaliza-api.onrender.com${imageUrl}`} 
               alt="Uploaded" 
             />
           </div>
